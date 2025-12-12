@@ -11,6 +11,7 @@ const props = defineProps({
     },
 });
 
+
 const itemsPerPage = 6;
 const currentPage = ref(1);
 
@@ -26,18 +27,19 @@ const paginatedEvents = computed(() => {
 const showModal = ref(false);
 const selectedEvent = ref(null);
 
+//TODO
 const currentTime = new Date();
 
 const form = ref({
     name: '',
-    date: '',
-    message: '',
-    numbers: ''
+    add_date: '',
+    desc: '',
+    limit: ''
 });
 
 function openEventModal(event) {
     selectedEvent.value = event
-    form.value = { name: '', date: '', message: '', numbers: '' }
+    form.value = { name: '', add_date: '', desc: '', limit: '' }
     showModal.value = true
 };
 
@@ -74,14 +76,12 @@ function prevPage() {
     .main {
         padding: 20px;
     }
-
     .events-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
         gap: 16px;
         margin-top: 20px;
     }
-
     .event-card {
         background: #ffffff;
         border-radius: 8px;
@@ -89,16 +89,13 @@ function prevPage() {
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         border: 1px solid #e5e5e5;
     }
-
     .event-desc {
         font-style: italic;
     }
-
     .event-limit {
         font-style: normal;
         font-size: large;
     }
-
     .event-add-button {
         border: 1px solid #2563eb;
         border-radius: 5px;
@@ -106,21 +103,18 @@ function prevPage() {
         background: #2563eb;
         color: white;
     }
-
     .event-add {
         float: right;
         background: #717985;
         color: white;
         padding: 1px;
     }
-
     .pagination {
         margin-top: 24px;
         display: flex;
         align-items: center;
         gap: 12px;
     }
-
     .pagination button {
         padding: 8px 14px;
         border-radius: 6px;
@@ -128,7 +122,6 @@ function prevPage() {
         background: #f7f7f7;
         cursor: pointer;
     }
-
     .pagination button:disabled {
         opacity: 0.4;
         cursor: not-allowed;
@@ -213,7 +206,7 @@ function prevPage() {
                                 <div class="mb-4">
                                     <label class="block font-medium">Dátum</label>
                                     <input
-                                        v-model="form.date"
+                                        v-model="form.add_date"
                                         type="datetime-local"
                                         min=""
                                         class="w-full border rounded p-2"
@@ -224,7 +217,7 @@ function prevPage() {
                                 <div class="mb-4">
                                     <label class="block font-medium">Leírás</label>
                                     <textarea
-                                        v-model="form.message"
+                                        v-model="form.desc"
                                         maxlength="5000"
                                         class="w-full border rounded p-2"
                                     ></textarea>
@@ -233,7 +226,7 @@ function prevPage() {
                                 <div class="mb-4">
                                     <label class="block font-medium">Létszám</label>
                                     <input
-                                        v-model="form.numbers"
+                                        v-model="form.limit"
                                         type="text"
                                         class="w-full border rounded p-2"
                                         required
@@ -259,7 +252,7 @@ function prevPage() {
                             </form>
                         </div>
                     </div>
-                    <!-- /EVENT_MODAL -->
+                    <!-- /EVENT_ADD_MODAL -->
                 </div>
             </div>
         </div>

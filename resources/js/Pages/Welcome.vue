@@ -9,7 +9,7 @@ const props = defineProps({
         type: [Array, Object],
         default: () => [],
     },
-})
+});
 
 const itemsPerPage = 6;
 const currentPage = ref(1);
@@ -27,13 +27,13 @@ function nextPage() {
     if (currentPage.value < totalPages.value) {
         currentPage.value++;
     }
-}
+};
 
 function prevPage() {
     if (currentPage.value > 1) {
         currentPage.value--;
     }
-}
+};
 
 </script>
 
@@ -41,14 +41,12 @@ function prevPage() {
     .main {
         padding: 20px;
     }
-
     .events-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
         gap: 16px;
         margin-top: 20px;
     }
-
     .event-card {
         background: #ffffff;
         border-radius: 8px;
@@ -56,30 +54,19 @@ function prevPage() {
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         border: 1px solid #e5e5e5;
     }
-
     .event-desc {
         font-style: italic;
     }
-
     .event-limit {
         font-style: normal;
         font-size: large;
     }
-
-    .event-add {
-        float: right;
-        background: #717985;
-        color: white;
-        padding: 1px;
-    }
-
     .pagination {
         margin-top: 24px;
         display: flex;
         align-items: center;
         gap: 12px;
     }
-
     .pagination button {
         padding: 8px 14px;
         border-radius: 6px;
@@ -87,7 +74,6 @@ function prevPage() {
         background: #f7f7f7;
         cursor: pointer;
     }
-
     .pagination button:disabled {
         opacity: 0.4;
         cursor: not-allowed;
