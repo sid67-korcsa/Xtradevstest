@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
@@ -35,7 +37,7 @@ class EventController extends Controller
      */
     public function store(StoreEventRequest $request)
     {
-        //
+        dd($request);
     }
 
     /**
