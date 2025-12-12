@@ -1,0 +1,9 @@
+# alkalmazott adatbazis-kezelo rendszer, mariadb-server[10.11.14]
+#
+
+CREATE DATABASE la_xtradevtest DEFAULT CHARSET UTF8;
+CREATE USER la_xtradevtest@localhost;
+SET PASSWORD FOR la_xtradevtest@localhost = PASSWORD('Mue8BeAL');
+GRANT ALL ON la_xtradevtest.* TO la_xtradevtest@localhost;
+FLUSH PRIVILEGES;
+
