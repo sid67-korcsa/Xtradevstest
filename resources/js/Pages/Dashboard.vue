@@ -5,7 +5,7 @@ import { computed, ref } from 'vue';
 
 const props = defineProps({
     events: {
-        type: Array,
+        type: [Array, Object],
         default: () => [],
     },
 })

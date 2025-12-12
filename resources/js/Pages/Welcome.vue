@@ -6,7 +6,7 @@ const props = defineProps({
     canLogin: Boolean,
     canRegister: Boolean,
     events: {
-        type: Array,
+        type: [Array, Object],
         default: () => [],
     },
 })
