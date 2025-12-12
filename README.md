@@ -3,6 +3,12 @@
     <br />
     <p>Az alap adatbázis telepítéshez szükséges szkript: create_database.sql.example</p>
     <br />
+    <p>Telepítés/integrálás utáni futtatási folyamatok: 
+    <ul>
+	<li>php artisan serve</li>
+	<li>npm run dev</li>
+    </ul>
+    </p>
     <p>Index routing folyamat befejeződésével a nyitó oldalra kerülünk, ahol card template elrendezés alapján, rendezetten megjelenítésre kerülnek az egyes események.
     <br />A card lista alsó részénél egy lapozó található alapértelmezett megjelenítéssel kapcsolatos beállítással. Ez egyenlőre Vue template-ből módosítható.</p>
     <p>Bejelentkezés után, lehetőség nyílik az új esemény ellenőrzés után történő rögzítésére.</p>
