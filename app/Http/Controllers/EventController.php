@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -75,5 +77,20 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         //
+    }
+
+    /**
+     *  example: #parameters: array:2 [
+     *      "user_id" => "1"
+     *      "event_id" => 11
+     *       ] - OK!!
+     *
+     * @param Request $request
+     */
+    public function classify(Request $request) {
+        if(is_array($request->all())) {
+            $userData = User::find($request->user_id);
+            $userData->events()->attach($request->all());
+        }
     }
 }

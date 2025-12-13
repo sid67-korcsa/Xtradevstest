@@ -27,12 +27,4 @@ class Event extends Model
         'image'
     ];
 
-    /**
-     * @return BelongsToMany
-     */
-    public function users(): BelongsToMany
-    {
-        return $this->belongsToMany(User::class, 'user_event', 'user_id', 'event_id');
-    }
-
 }

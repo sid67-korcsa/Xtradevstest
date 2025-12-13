@@ -37,15 +37,32 @@ const form = ref({
     limit: ''
 });
 
+const data = ref({
+    event_id: '',
+    user_id: ''
+});
+
 function openEventModal(event) {
-    selectedEvent.value = event
-    form.value = { name: '', add_date: '', desc: '', limit: '' }
-    showModal.value = true
-};
+    selectedEvent.value = event;
+    form.value = { name: '', add_date: '', desc: '', limit: '' };
+    showModal.value = true;
+}
 
 function closeModal() {
     showModal.value = false
-};
+}
+
+function addEventClass(event) {
+    let event_id = event.id;
+    let user_id = document.querySelector("meta[name='user-id']").getAttribute('content');
+    router.post(route('event.classify'), {
+        user_id, event_id
+    }, {
+        onSuccess: () => {
+            window.alert("Sikeres jelentkezés!");
+        }
+    });
+}
 
 /* SUBMIT */
 function submitForm() {
@@ -53,22 +70,23 @@ function submitForm() {
         ...form.value
     }, {
         onSuccess: () => {
+            window.alert("Sikeres rögzítés!");
             showModal.value = false
         }
-    })
+    });
 }
 
 function nextPage() {
     if (currentPage.value < totalPages.value) {
         currentPage.value++;
     }
-};
+}
 
 function prevPage() {
     if (currentPage.value > 1) {
         currentPage.value--;
     }
-};
+}
 
 </script>
 
@@ -156,7 +174,7 @@ function prevPage() {
                             <p class="event-limit">{{ event.limit }}</p>
                             <p class="event-add"><button
                                 class="add"
-                                @click="">Jelentkezés
+                                @click="addEventClass(event)">Jelentkezés
                                 </button>
                             </p>
                         </div>

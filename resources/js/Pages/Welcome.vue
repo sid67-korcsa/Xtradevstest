@@ -27,13 +27,13 @@ function nextPage() {
     if (currentPage.value < totalPages.value) {
         currentPage.value++;
     }
-};
+}
 
 function prevPage() {
     if (currentPage.value > 1) {
         currentPage.value--;
     }
-};
+}
 
 </script>
 
