@@ -90,7 +90,7 @@ class EventController extends Controller
     public function classify(Request $request) {
         if(is_array($request->all())) {
             $userData = User::find($request->user_id);
-            $userData->events()->attach($request->all());
+            $userData->events()->sync($request->all(), false);
         }
     }
 }
