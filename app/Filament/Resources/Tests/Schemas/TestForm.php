@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Tests\Schemas;
 
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
 
 class TestForm
 {
@@ -13,6 +14,8 @@ class TestForm
             ->components([
                 TextInput::make('data'),
                 TextInput::make('comment'),
+                FileUpload::make('attachment')
+                    ->preserveFilenames(),
             ]);
     }
 }
