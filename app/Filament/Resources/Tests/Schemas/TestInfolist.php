@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Tests\Schemas;
 
 use Filament\Schemas\Schema;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Forms\Components\FileUpload;
 
 class TestInfolist
 {

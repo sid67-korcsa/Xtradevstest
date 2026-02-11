@@ -4,6 +4,8 @@ namespace App\Filament\Resources\Tests\Pages;
 
 use App\Filament\Resources\Tests\TestResource;
 use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
+use Filament\Tables\Table;
 use Filament\Resources\Pages\ViewRecord;
 
 class ViewTest extends ViewRecord
@@ -14,6 +16,17 @@ class ViewTest extends ViewRecord
     {
         return [
             EditAction::make(),
+            ViewAction::make(),
         ];
+    }
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                'data',
+                'comment',
+                'attachement'
+            ]);
     }
 }

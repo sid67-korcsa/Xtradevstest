@@ -15,11 +15,12 @@ class TestsTable
     {
         return $table
             ->columns([
-                TextColumn::make("id"),
-                TextColumn::make("created_at"),
-                TextColumn::make("updated_at"),
-                TextColumn::make("data")->color('primary'),
-                TextColumn::make("comment"),
+                TextColumn::make("id")->searchable()->sortable(),
+                TextColumn::make("created_at")->sortable(),
+                TextColumn::make("updated_at")->sortable(),
+                TextColumn::make("data")->color('primary')->searchable()->sortable(),
+                TextColumn::make("comment")->searchable()->sortable(),
+                TextColumn::make("attachment"),
             ])
             ->filters([
                 //
