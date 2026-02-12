@@ -2,9 +2,11 @@
 
 namespace App\Filament\Resources\Tests\Schemas;
 
+use Filament\Actions\Action;
 use Filament\Schemas\Schema;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Forms\Components\FileUpload;
+use Illuminate\Support\Facades\Storage;
+
 
 class TestInfolist
 {
@@ -15,6 +17,13 @@ class TestInfolist
                 TextEntry::make('data'),
                 TextEntry::make('comment'),
                 TextEntry::make('modify'),
+                Action::make('download')
+                    ->label('Letoltes')
+                    ->icon('heroicon-o-arrow-down-tray')
+                    ->action(function ($record) {
+                        return Storage::disk('public')->download($record->attachment);
+                    })
+                //TextEntry::make('attachment'),
             ]);
     }
 }
