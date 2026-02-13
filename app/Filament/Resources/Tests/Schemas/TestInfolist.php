@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Tests\Schemas;
 use Filament\Actions\Action;
 use Filament\Schemas\Schema;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Tables\Columns\ImageColumn;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -22,7 +23,8 @@ class TestInfolist
                     ->icon('heroicon-o-arrow-down-tray')
                     ->action(function ($record) {
                         return Storage::disk('public')->download($record->attachment);
-                    })
+                    }),
+                ImageColumn::make('active')
                 //TextEntry::make('attachment'),
             ]);
     }

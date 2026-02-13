@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Tests\Schemas;
 
+use Filament\Forms\Components\Checkbox;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
@@ -16,6 +17,7 @@ class TestForm
                 TextInput::make('comment'),
                 FileUpload::make('attachment')
                     ->preserveFilenames(),
+                Checkbox::make('active'),
             ]);
     }
 }
