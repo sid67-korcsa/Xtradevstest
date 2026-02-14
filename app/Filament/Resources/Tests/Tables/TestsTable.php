@@ -26,7 +26,7 @@ class TestsTable
                 TextColumn::make("comment")->searchable()->sortable(),
                 TextColumn::make("attachment"),
                 IconColumn::make('active')
-                    ->color('success')
+                    ->boolean(),
                 /*IconColumn::make('active')
                     ->icon(fn (string $state): Heroicon => match (true) {
                         0 => Heroicon::OutlinedPencil,
