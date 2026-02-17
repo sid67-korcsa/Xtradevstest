@@ -3,9 +3,11 @@
 namespace App\Filament\Resources\Tests\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
+use Filament\Notifications\Notification;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Support\Enums\IconSize;
 use Filament\Support\Icons\Heroicon;
@@ -40,10 +42,17 @@ class TestsTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+                    DeleteBulkAction::make()
+                        ->action(function (): void {
+                            Notification::make()
+                                ->title('Now, now, don\'t be cheeky, leave some records for others to play with!')
+                                ->warning()
+                                ->send();
+                        }),
                 ]),
             ]);
     }
