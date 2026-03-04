@@ -358,7 +358,7 @@ class TaskSimpleController extends BREADController
             <div class="input-group simple-task-center">
                 <div class="task-priority-div">
                     <label>
-                        <input type="radio" title="1" style="border: 0px" id="task-priority-1" class="form-control radio-task-priority task-priority-edit" name="task_priority" 
+                        <input type="radio" title="1" style="border: 0px" id="task-priority-1" class="form-control radio-task-priority task-priority-edit" name="task_priority"
                             value="1" data-waschecked="true"><span style="width: 52px;">1</span>
                     </label>
                 </div>
@@ -399,7 +399,7 @@ class TaskSimpleController extends BREADController
                 </div>
                 <div class="task-term-div">
                     <label>
-                        <input type="radio" title="Mai nap" style="border: 1px" id="task-term-1" class="form-control radio-task-priority task-priority-edit" name="task_term"   
+                        <input type="radio" title="Mai nap" style="border: 1px" id="task-term-1" class="form-control radio-task-priority task-priority-edit" name="task_term"
                             value="'.Carbon::now()->toDateString().'"><span class="task-btn btn btn-primary">Mai nap</span>
                     </label>
                 </div>
@@ -444,7 +444,7 @@ class TaskSimpleController extends BREADController
                 </div>
                 <div class="task-reminder-div" id="task-reminder-div-01">
                     <label>
-                        <input type="radio" title="Ma 16ó" style="border: 0px" id="task-reminder-1" class="form-control radio-task-priority task-priority-edit" name="task_reminder" 
+                        <input type="radio" title="Ma 16ó" style="border: 0px" id="task-reminder-1" class="form-control radio-task-priority task-priority-edit" name="task_reminder"
                             value="'.Carbon::now()->toDateString().' 16:00:00"><span class="task-btn btn btn-primary">Ma 16ó</span>
                     </label>
                 </div>
@@ -456,13 +456,13 @@ class TaskSimpleController extends BREADController
                 </div>
                 <div class="task-reminder-div" id="task-reminder-div-03">
                     <label>
-                        <input type="radio" title="1 nappal korábban" style="border: 0px" id="task-reminder-3" class="form-control radio-task-priority task-priority-edit" name="task_reminder" 
+                        <input type="radio" title="1 nappal korábban" style="border: 0px" id="task-reminder-3" class="form-control radio-task-priority task-priority-edit" name="task_reminder"
                             value="'.(isset($one) ? $one : "").'"><span class="task-btn btn btn-primary ">1 nappal korábban</span>
                     </label>
                 </div>
                 <div class="task-reminder-div" id="task-reminder-div-04">
                     <label>
-                        <input type="radio" title="2 nappal korábban" style="border: 0px" id="task-reminder-4" class="form-control radio-task-priority task-priority-edit" name="task_reminder" 
+                        <input type="radio" title="2 nappal korábban" style="border: 0px" id="task-reminder-4" class="form-control radio-task-priority task-priority-edit" name="task_reminder"
                             value="'.(isset($two) ? $two : "").'"><span class="task-btn btn btn-primary">2 nappal korábban</span>
                     </label>
                 </div>
