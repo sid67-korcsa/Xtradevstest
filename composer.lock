@@ -2093,16 +2093,16 @@
         },
         {
             "name": "laravel/ai",
-            "version": "v0.4.0",
+            "version": "v0.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/ai.git",
-                "reference": "ed3af79e00437828c18088dcc4a8a55898dfe654"
+                "reference": "91441b6ae5bc995f21bb3043744860bd3043e78c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/ai/zipball/ed3af79e00437828c18088dcc4a8a55898dfe654",
-                "reference": "ed3af79e00437828c18088dcc4a8a55898dfe654",
+                "url": "https://api.github.com/repos/laravel/ai/zipball/91441b6ae5bc995f21bb3043744860bd3043e78c",
+                "reference": "91441b6ae5bc995f21bb3043744860bd3043e78c",
                 "shasum": ""
             },
             "require": {
@@ -2155,7 +2155,7 @@
                 "issues": "https://github.com/laravel/ai/issues",
                 "source": "https://github.com/laravel/ai"
             },
-            "time": "2026-03-25T14:11:27+00:00"
+            "time": "2026-03-27T18:24:41+00:00"
         },
         {
             "name": "laravel/breeze",
