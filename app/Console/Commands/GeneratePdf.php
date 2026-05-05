@@ -7,11 +7,11 @@ use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 use Barryvdh\DomPDF\Facade\Pdf;
 
-
 #[Signature('app:generate-pdf')]
 #[Description('Command description')]
 class GeneratePdf extends Command
 {
+
 
     /**
      * The name and signature of the console command.
@@ -26,6 +26,8 @@ class GeneratePdf extends Command
      * @var string
      */
     protected $description = 'Teszt PDF állomány generálása..';
+
+    protected $pdfName = "hello-world.pdf";
     /**
      * Execute the console command.
      */
@@ -40,8 +42,12 @@ class GeneratePdf extends Command
             vel possimus omnis rem veritatis vitae in voluptatum laborum non ipsam
             doloremque.';
 
-        $pdf = Pdf::loadView('pdf-view', ['data' => $data]);
-        $pdf->save('hello-world.pdf');
+        Pdf::setOption(['dpi' => 300, 'defaultPaperSize' =>'a3', 'defaultFont' => 'sans-serif']);
+        $pdf = Pdf::loadView(
+            'pdf-view',
+            ['data' => $data]
+        );
+        $pdf->save($this->pdfName);
 
         /**
          * run artisan command in console
