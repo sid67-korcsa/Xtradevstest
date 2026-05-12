@@ -1,0 +1,18 @@
+.col-6 .col-md-4
+
+The combination of .col-6 and .col-md-4 in Bootstrap creates a responsive element that changes its width based on the screen size. 
+Here is how the element will behave across different screen breakpoints:
+
+Screen Size 
+	Breakpoint	Screen Width	Columns Occupied			Width 									Percentage
+	Extra 		Small				None (.col-6 applies)	Less than 576px	6 (out of 12)	50%
+	Small			sm	≥ 576px		6 (out of 12)															50%
+	Medium		md	≥ 768px		4 (out of 12)															33.3%
+	Large			lg	≥ 992px		4 (out of 12)															33.3%
+	Extra 		Large	xl	≥ 1200px	4 (out of 12)														33.3%
+Explanation
+
+    .col-6: This is a base class that applies to all screen sizes (extra small and up) because it has no specific breakpoint infix. It makes the element take up 6 columns (50% width).
+    .col-md-4: This class applies when the screen width is at the "medium" breakpoint (768px) or larger. When this condition is met, this class's styles override the .col-6 class for that specific breakpoint and all larger ones. 
+
+In essence: The element will be 50% wide on mobile devices and small tablets, and automatically become 33.3% wide on medium-sized screens (like larger tablets and laptops) and any larger screen sizes. 
