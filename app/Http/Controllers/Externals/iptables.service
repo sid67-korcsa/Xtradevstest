@@ -1,0 +1,16 @@
+[Unit]
+# Auto-generated, DO NOT EDIT
+Description=Service for iptables rules load
+Wants=network.target
+After=mysql.service
+
+[Service]
+EnvironmentFile=-/etc/environment
+ExecStart=/usr/sbin/iptables.run.service
+SyslogIdentifier=iptables.iptables
+Restart=on-failure
+WorkingDirectory=/tmp
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
