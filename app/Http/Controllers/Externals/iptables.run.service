@@ -5,20 +5,24 @@
 
 portsTCP=(`netstat -taepnlu | gawk '{if($1=="tcp") {print $4}}' | gawk -v FS=":" '{print $2}' | sort -n | uniq`) 
 portsUDP=(`netstat -taepnlu | gawk '{if($1=="udp") {print $4}}' | gawk -v FS=":" '{print $2}' | sort -n | uniq`) 
+sourceIPCIDR=""
+sourceIPRANGE=""
 
+
+#flush rules in the filter and mangle table's
 `which iptables` -t filter -F 
 `which iptables` -t mangle -F 
 
 for port 
 in ${!portsTCP[@]};
 do 
-    `which iptables` -t mangle -A INPUT -s ${ipmask} -m iprange --src-range ${from_to} -m state --state NEW -m limit --limit 3/sec -m tcp -p tcp --dport ${portsTCP[$port]} -j ACCEPT
+    `which iptables` -t mangle -A INPUT -s 192.168.2.0/24 -m iprange --src-range 192.168.2.1-192.168.2.254 -m state --state NEW -m limit --limit 3/sec -m tcp -p tcp --dport ${portsTCP[$port]} -j ACCEPT
 done 
 
 for port 
 in ${!portsUDP[@]}
 do 
-    `which iptables` -t mangle -I INPUT -s ${ipmask} -m iprange --src-range ${from_to} -m state --state NEW -m limit --limit 3/sec -m udp -p udp --dport ${portsUDP[$port]} -j ACCEPT
+    `which iptables` -t mangle -I INPUT -s 192.168.2.0/24 -m iprange --src-range 192.168.2.1-192.168.2.254 -m state --state NEW -m limit --limit 3/sec -m udp -p udp --dport ${portsUDP[$port]} -j ACCEPT
 done
 
 
