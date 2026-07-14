@@ -53,6 +53,8 @@ function closeModal() {
 }
 
 function addEventClass(event) {
+    console.log("event");
+    console.log(event);
     let event_id = event.id;
     let user_id = document.querySelector("meta[name='user-id']").getAttribute('content');
     router.post(route('event.classify'), {
